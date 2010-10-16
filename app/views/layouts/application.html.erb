@@ -8,7 +8,15 @@
 </head>
 <body>
 
+<div id='user-status'>
+	<% if signed_in? %>
+		Hello <%= current_user.name %>. <%= link_to "Logout!", logout_path %> 
+	<% else %>
+		To vote on a gem, you must <%= link_to image_tag("sign-in-with-twitter-d.png", :border=>0), login_path %> 
+	<% end %>
+</div>
 <%= yield %>
+
 
 </body>
 </html>

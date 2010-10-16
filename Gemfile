@@ -6,6 +6,12 @@ gem 'rails', '3.0.0'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem "mongo_mapper", :git => "http://github.com/jnunemaker/mongomapper.git", :branch => "rails3"
+gem "bson_ext", "1.0.7", :require => false
+gem 'omniauth'
+
+if defined?(BSON_C)
+  warn 'YAY'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'

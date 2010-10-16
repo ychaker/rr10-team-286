@@ -1,4 +1,11 @@
 Depricateme::Application.routes.draw do
+  match '/auth/:provider/callback', :to => 'sessions#create'
+  
+  match "login"     => "sessions#new"
+  match "logout"    => "sessions#destroy"
+  
+  match "/sessions/test"    => "sessions#test"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
