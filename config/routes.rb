@@ -1,4 +1,6 @@
 Deprecateme::Application.routes.draw do
+  resources :votes
+
   match '/auth/:provider/callback', :to => 'sessions#create'
   
   match "login"             => "sessions#new"

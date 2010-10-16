@@ -1,0 +1,29 @@
+<p>
+  <b>Name:</b>
+  <%= @vote.name %>
+</p>
+
+<p>
+  <b>Version:</b>
+  <%= @vote.version %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @vote.user.name %>
+</p>
+
+<p>
+  <b>Timestanp:</b>
+  <%= @vote.timestamp %>
+</p>
+
+
+
+<%= link_to 'Back', :back %>
+
+
+<% if @vote.mine?(current_user.id) %>
+ |  <%= link_to 'Edit', edit_vote_path(@vote) %>
+ |  <%= link_to 'Destroy', @vote, :confirm => 'Are you sure?', :method => :delete %>
+<% end if signed_in? %>

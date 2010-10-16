@@ -1,7 +1,7 @@
 <% unless @gem.blank? %>
-
-<div class="gem">
-	<h2><%= @gem.name %></h2>
+<div id="gem">
+<div class="gem-info">
+	<h2><%= @gem.name %>: (-<%= Vote.by_name(@gem.name).count%>)</h2>
 	<p>
 		<%= raw display_info(@gem, 'name') %>
 	</p>
@@ -12,7 +12,34 @@
 		<%= raw display_info(@gem, 'version') %>
 	</p>
 	<p>
+		<%= raw display_info(@gem, 'version_downloads') %>
+	</p>
+	<p>
 		<%= raw display_info(@gem, 'authors') %>
+	</p>
+	<p>
+		<%= raw display_url(@gem, 'project_uri') %>
+	</p>
+	<p>
+		<%= raw display_url(@gem, 'gem_uri') %>
+	</p>
+	<p>
+		<%= raw display_url(@gem, 'homepage_uri') %>
+	</p>
+	<p>
+		<%= raw display_url(@gem, 'wiki_uri') %>
+	</p>
+	<p>
+		<%= raw display_url(@gem, 'documentation_uri') %>
+	</p>
+	<p>
+		<%= raw display_url(@gem, 'mailing_list_uri') %>
+	</p>
+	<p>
+		<%= raw display_url(@gem, 'source_code_uri') %>
+	</p>
+	<p>
+		<%= raw display_url(@gem, 'bug_tracker_uri') %>
 	</p>
 	<p>
 		<%= raw display_dependencies(@gem, 'runtime_dependencies') %>
@@ -20,6 +47,14 @@
 	<p>
 		<%= raw display_dependencies(@gem, 'development_dependencies') %>
 	</p>
+	<% if signed_in? %>
+	<div class='deprecate-me'>
+		<%= link_to image_tag("/images/deprecateme-stamp.png", :border => 0), votes_path(:vote => { :name => @gem.name, :version => @gem.version, :user_id => current_user.id, :timestamp => Time.now }), :method => :post %>
+	</div>
+	<% end %>
 	<hr />
 </div>
+<div class="clear"> </div>
+</div>
 <% end %>
+   

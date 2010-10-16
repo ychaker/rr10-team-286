@@ -86,11 +86,7 @@ input[type='submit']:hover {
 	display: block;
 	min-height: 100px;
 	color: #9E8686;
-}
-
-#title h1 {
-	color: white;
-	font-size: 3em;
+	padding-right: 120px;
 }
 
 #title {
@@ -98,13 +94,18 @@ input[type='submit']:hover {
 	min-height: 100px;
 }
 
-#title h1 a,
-#title h1 a:hover,
-#title h1 a:active,
-#title h1 a:visited {
-	color: white;
+#title h1 a {
+	background: url(/images/deprecateme-logo.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	display: block;
+	height: 100px;
 	text-decoration: none;
+	text-indent: -9999px;
+	width: 300px;
 }
+
+#title h1 { margin: 0;}
 
 #user-status {
 	float: right;
@@ -118,3 +119,37 @@ input[type='submit']:hover {
 	text-align: center;
 	padding: 30px;
 }
+
+.deprecate-me {
+	float: right;
+	position: absolute;
+	top: -25px;
+	right: -250px;
+	width: 200px;
+}
+
+.gem-info {
+	float: left;
+	position:relative;
+}
+#gem {
+	clear: both;
+}
+
+/* Flash Messages */
+#flash_notice, #flash_error {
+  padding: 5px 8px;
+  margin: 10px auto;
+  width: 70%;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+/* End Flash Messages */

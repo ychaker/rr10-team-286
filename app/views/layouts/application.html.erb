@@ -23,13 +23,21 @@
 	</div>
 	<div class="clear"> </div>
 	<div id='wrapper'>
+		<%- flash.each do |name, msg| -%>
+			<%= content_tag :div, raw(msg), :id => "flash_#{name}" %>
+		<%- end -%>
 		<%= yield %>
 	</div>
+	<div class="clear"> </div>
 	<div id="footer">
 		Theme Completely and Shamelessly Stolen from RubyGems.org
 	</div>
+	<div class="clear"> </div>
 </div>
 
-
+<script type="text/javascript">
+  var rumbleUrl = 'http://railsrumble.com';
+</script>
+<script type="text/javascript" src="http://blog.railsrumble.com/javascripts/rumble-r10-sash.js"></script>
 </body>
 </html>

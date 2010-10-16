@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  version: MyString
+  user_id: 
+  timestanp: 2010-10-16 10:19:03
+
+two:
+  name: MyString
+  version: MyString
+  user_id: 
+  timestanp: 2010-10-16 10:19:03

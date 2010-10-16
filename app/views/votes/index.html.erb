@@ -1,0 +1,27 @@
+<h1>Listing votes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Version</th>
+    <th>User</th>
+    <th>Timestanp</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @votes.each do |vote| %>
+  <tr>
+    <td><%= vote.name %></td>
+    <td><%= vote.version %></td>
+    <td><%= vote.user_id %></td>
+    <td><%= vote.timestamp %></td>
+    <td><%= link_to 'Show', vote %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Vote', new_vote_path %>

@@ -1,0 +1,10 @@
+<h1>Editing vote</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @vote %>
+| <%= link_to 'Back', :back %>
+
+<% if @vote.mine?(current_user.id) %>
+ |  <%= link_to 'Destroy', @vote, :confirm => 'Are you sure?', :method => :delete %>
+<% end if signed_in? %>
