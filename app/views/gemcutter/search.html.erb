@@ -3,21 +3,40 @@
   <%= submit_tag("Search") %>
 <% end %>
 
-<% @gems.each do |each| %>
-	<div class="gem">
-		<h2><%= each.name %></h2>
-		<p>
-			<%= raw display_info(each, 'name') %>
-		</p>
-		<p>
-			<%= raw display_info(each, 'info') %>
-		</p>
-		<p>
-			<%= raw display_info(each, 'version') %>
-		</p>
-		<p>
-			<%= link_to "more info", :controller => :gemcutter, :action => :rubygem, :name => each.name %>
-		</p>
-		<hr />
-	</div>
-<% end unless @gems.blank? %>
+<% unless @gems.blank? %>
+	<% @gems.each do |each| %>
+		<div class="gem">
+			<div class="gem-info">
+				<h2><%= each.name %>  <%= raw vote_count(each.name) %></h2>
+				<p>
+					<%= raw display_info(each, 'name') %>
+				</p>
+				<p>
+					<%= raw display_info(each, 'info') %>
+				</p>
+				<p>
+					<%= raw display_info(each, 'version') %>
+				</p>
+				<p>
+					<%= link_to "more info", :controller => :gemcutter, :action => :rubygem, :name => each.name %>
+				</p>
+			</div>
+			<div class='deprecated'>
+				<%= image_tag("/images/deprecated-stamp.png", :border => 0, :width => 200, :height => 200) if Vote.deprecated?(each.name) %>
+			</div>
+			<div class="clear"> </div>
+			<hr />
+		</div>
+	<% end %>
+	
+<% else %>
+
+	<hr />
+	<h2>Recent Activity</h2>
+
+	<% @recent.each do |activity| %>
+		<div class="gem">
+			<red><%= link_to activity.name, :controller => :gemcutter, :action => :rubygem, :name => activity.name %></red> voted down by <strong><%= activity.user.name %></strong> at <%= activity.timestamp %>
+		</div>
+	<% end unless @recent.blank? %>
+<% end %>

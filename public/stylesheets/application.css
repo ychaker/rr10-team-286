@@ -19,7 +19,7 @@ a:hover {
 	text-decoration: underline;
 }
 #container {
-	width: 960px;
+	width: 1000px;
 	margin: 0 auto;
 	padding: 5px;
 }
@@ -82,13 +82,38 @@ input[type='submit']:hover {
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(1, #690900),color-stop(.5, #8f0e00),color-stop(.49, #a41200),color-stop(0, #f00));
 }
 
+red {
+	color: red;
+}
+
+red a,
+red a:hover,
+red a:active,
+red a:visited {
+	color: red;
+}
+
+
+/* Header */
+#search {
+	float: right;
+	line-height: 50px;
+}
+#search input[type="text"] {
+  padding: 5px;
+  font-size: 10px;
+}
+
+#search input[type='submit'] {
+  padding: 5px;
+  font-size: 10px;
+}
 #header {
 	display: block;
 	min-height: 100px;
 	color: #9E8686;
 	padding-right: 120px;
 }
-
 #title {
 	float: left;
 	min-height: 100px;
@@ -107,12 +132,19 @@ input[type='submit']:hover {
 
 #title h1 { margin: 0;}
 
-#user-status {
+#left-header {
 	float: right;
 	min-height: 100px;
-	font-size: 1.2em;
 	line-height: 100px;
+	padding-top: 20px;
+	padding-right: 20px;
 }
+
+#user-status {
+	font-size: 1em;
+	line-height: 25px;
+}
+/* End Header */
 
 #footer {
 	color: #9E8686;
@@ -123,17 +155,20 @@ input[type='submit']:hover {
 .deprecate-me {
 	float: right;
 	position: absolute;
-	top: -25px;
-	right: -250px;
-	width: 200px;
+	right: 100px;
+	top: 150px;
+	width: 460px;
+	z-index: 1000;
 }
 
 .gem-info {
+	width: 500px;
 	float: left;
 	position:relative;
 }
 #gem {
 	clear: both;
+	width: 900px;
 }
 
 /* Flash Messages */

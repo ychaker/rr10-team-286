@@ -61,28 +61,31 @@ module Gemcutter
   end
   
   def self.rubygem(name)
-    doc = Nokogiri::XML(open(BASE_URI + "/api/v1/gems/#{name}.xml"))
-    @gem = SearchResult.new( 
-    {   :name                     => doc.xpath('//rubygem/name').text, 
-        :info                     => doc.xpath('//rubygem/info').text, 
-        :version                  => doc.xpath('//rubygem/version').text, 
-        :version_downloads        => doc.xpath('//rubygem/version-downloads').text, 
-        :authors                  => doc.xpath('//rubygem/authors').text, 
-        :downloads                => doc.xpath('//rubygem/downloads').text, 
-        :project_uri              => doc.xpath('//rubygem/project-uri').text, 
-        :gem_uri                  => doc.xpath('//rubygem/gem-uri').text, 
-        :homepage_uri             => doc.xpath('//rubygem/homepage-uri').text, 
-        :wiki_uri                 => doc.xpath('//rubygem/wiki-uri').text, 
-        :documentation_uri        => doc.xpath('//rubygem/documentation-uri').text, 
-        :mailing_list_uri         => doc.xpath('//rubygem/mailing-list-uri').text, 
-        :source_code_uri          => doc.xpath('//rubygem/source-code-uri').text, 
-        :bug_tracker_uri          => doc.xpath('//rubygem/bug-tracker-uri').text, 
-        :runtime_dependencies     => doc.xpath('//rubygem/dependencies/runtime/dependency').inject([]){
-          |dependencies, dependency| 
-          dependencies << { :name => dependency.xpath('name').text, :requirements =>  dependency.xpath('requirements').text }},
-        :development_dependencies => doc.xpath('dependencies/development/dependency').inject([]){
+    begin
+      doc = Nokogiri::XML(open(BASE_URI + "/api/v1/gems/#{name}.xml"))
+      @gem = SearchResult.new( 
+      {   :name                     => doc.xpath('//rubygem/name').text, 
+          :info                     => doc.xpath('//rubygem/info').text, 
+          :version                  => doc.xpath('//rubygem/version').text, 
+          :version_downloads        => doc.xpath('//rubygem/version-downloads').text, 
+          :authors                  => doc.xpath('//rubygem/authors').text, 
+          :downloads                => doc.xpath('//rubygem/downloads').text, 
+          :project_uri              => doc.xpath('//rubygem/project-uri').text, 
+          :gem_uri                  => doc.xpath('//rubygem/gem-uri').text, 
+          :homepage_uri             => doc.xpath('//rubygem/homepage-uri').text, 
+          :wiki_uri                 => doc.xpath('//rubygem/wiki-uri').text, 
+          :documentation_uri        => doc.xpath('//rubygem/documentation-uri').text, 
+          :mailing_list_uri         => doc.xpath('//rubygem/mailing-list-uri').text, 
+          :source_code_uri          => doc.xpath('//rubygem/source-code-uri').text, 
+          :bug_tracker_uri          => doc.xpath('//rubygem/bug-tracker-uri').text, 
+          :runtime_dependencies     => doc.xpath('//rubygem/dependencies/runtime/dependency').inject([]){
             |dependencies, dependency| 
             dependencies << { :name => dependency.xpath('name').text, :requirements =>  dependency.xpath('requirements').text }},
-    })
+          :development_dependencies => doc.xpath('dependencies/development/dependency').inject([]){
+              |dependencies, dependency| 
+              dependencies << { :name => dependency.xpath('name').text, :requirements =>  dependency.xpath('requirements').text }},
+      })
+    rescue Exception
+    end
   end
 end
