@@ -1,10 +1,13 @@
-Depricateme::Application.routes.draw do
+Deprecateme::Application.routes.draw do
   match '/auth/:provider/callback', :to => 'sessions#create'
   
-  match "login"     => "sessions#new"
-  match "logout"    => "sessions#destroy"
+  match "login"             => "sessions#new"
+  match "logout"            => "sessions#destroy"
   
   match "/sessions/test"    => "sessions#test"
+  
+  match "search"            => "gemcutter#search"
+  match "gemcutter/:action" => "gemcutter"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -55,7 +58,7 @@ Depricateme::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "gemcutter#search"
 
   # See how all your routes lay out with "rake routes"
 

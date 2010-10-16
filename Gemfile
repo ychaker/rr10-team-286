@@ -13,6 +13,8 @@ if defined?(BSON_C)
   warn 'YAY'
 end
 
+gem "nokogiri"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

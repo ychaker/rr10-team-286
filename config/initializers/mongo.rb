@@ -1,5 +1,5 @@
 MongoMapper.connection = Mongo::Connection.new('localhost', 27017)
-MongoMapper.database = "#depricateme-#{Rails.env}"
+MongoMapper.database = "#deprecateme-#{Rails.env}"
 
 if defined?(PhusionPassenger)
    PhusionPassenger.on_event(:starting_worker_process) do |forked|

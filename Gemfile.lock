@@ -134,5 +134,6 @@ PLATFORMS
 DEPENDENCIES
   bson_ext (= 1.0.7)
   mongo_mapper!
+  nokogiri
   omniauth
   rails (= 3.0.0)

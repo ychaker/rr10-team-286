@@ -1,0 +1,23 @@
+<%= form_tag(search_path, :method => "get") do %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% @gems.each do |each| %>
+	<div class="gem">
+		<h2><%= each.name %></h2>
+		<p>
+			<%= raw display_info(each, 'name') %>
+		</p>
+		<p>
+			<%= raw display_info(each, 'info') %>
+		</p>
+		<p>
+			<%= raw display_info(each, 'version') %>
+		</p>
+		<p>
+			<%= link_to "more info", :controller => :gemcutter, :action => :rubygem, :name => each.name %>
+		</p>
+		<hr />
+	</div>
+<% end unless @gems.blank? %>

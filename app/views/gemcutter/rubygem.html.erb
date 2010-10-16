@@ -1,0 +1,25 @@
+<% unless @gem.blank? %>
+
+<div class="gem">
+	<h2><%= @gem.name %></h2>
+	<p>
+		<%= raw display_info(@gem, 'name') %>
+	</p>
+	<p>
+		<%= raw display_info(@gem, 'info') %>
+	</p>
+	<p>
+		<%= raw display_info(@gem, 'version') %>
+	</p>
+	<p>
+		<%= raw display_info(@gem, 'authors') %>
+	</p>
+	<p>
+		<%= raw display_dependencies(@gem, 'runtime_dependencies') %>
+	</p>
+	<p>
+		<%= raw display_dependencies(@gem, 'development_dependencies') %>
+	</p>
+	<hr />
+</div>
+<% end %>
