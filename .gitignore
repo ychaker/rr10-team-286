@@ -1,4 +1,6 @@
-.bundle
-db/*.sqlite3
+.DS_Store
 log/*.log
 tmp/**/*
+db/*.sqlite3
+.project
+
