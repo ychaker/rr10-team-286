@@ -93,6 +93,8 @@ red a:visited {
 	color: red;
 }
 
+.center { text-align: center; }
+
 /* Header */
 #search {
 	float: right;
