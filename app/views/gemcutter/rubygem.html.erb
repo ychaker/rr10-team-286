@@ -18,6 +18,9 @@
 			<%= raw display_info(@gem, 'authors') %>
 		</p>
 		<p>
+			<%= raw display_info(@gem, 'downloads') %>
+		</p>
+		<p>
 			<%= raw display_url(@gem, 'project_uri') %>
 		</p>
 		<p>
@@ -48,15 +51,40 @@
 			<%= raw display_dependencies(@gem, 'development_dependencies') %>
 		</p>
 	</div>
+	<div class='deprecated-big'>
+		<%= image_tag("/images/deprecated-stamp-right.png", :border => 0) if Vote.deprecated?(@gem.name) %>
+	</div>
 	<% if signed_in? %>
 		<div class='deprecate-me'>
-			<%= link_to image_tag("/images/deprecateme-stamp.png", :border => 0), votes_path(:vote => { :name => @gem.name, :version => @gem.version, :user_id => current_user.id, :timestamp => Time.now }), :method => :post %>
+			<%= link_to image_tag("/images/deprecateme-stamp.png", :border => 0, :width => 400), votes_path(:vote => { :name => @gem.name, :version => @gem.version, :user_id => current_user.id, :timestamp => Time.now }), :method => :post %>
 		</div>
 	<% end %>
+	
+	<div class="dependents">
+		<h2>Possible Dependents</h2>
+		<% @gem.dependents.each do |dependent| %>
+			<%= display_dependency dependent %>
+			<br />
+		<% end %>
+	</div>
+	
+	<div class="project-status">
+		<h2>Project Status</h2>
+		<strong>Total Votes for Deprecation:</strong> <%= Vote.by_name(@gem.name).count %><br />
+		<strong>Current Version Downloads:</strong> <%= @gem.version_downloads %><br />
+		<strong>Total Downloads:</strong> <%= @gem.downloads %><br />
+		<strong>Last Commit Date:</strong> <%= display_last_commit_date @gem.last_commit_date %><br />
+	</div>
+	
 	<div class="clear"> </div>
-
+	
 	<hr />
+	
+	
+	
+	<div class="clear"> </div>
 </div>
+
 <% else %>
 	<h2><red>Gem Not Found!</red></h2>
 <% end %>

@@ -18,7 +18,7 @@ class Vote
   end
 
   def self.deprecated?(name)
-    Vote.by_name(name).count >= 5
+    Vote.by_name(name).count >= 5 #5 TODO: change back to 5 after testing is done!
   end
 
   def self.recent

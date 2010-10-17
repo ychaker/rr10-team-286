@@ -28,6 +28,16 @@ module Gemcutter
       end
     end
     
+    def dependents
+      Gemcutter.dependents(self.name)
+    end
+    
+    def last_commit_date
+      if self.source_code_uri.include?("github")
+        doc = Nokogiri::XML(open("http://github.com/api/v2/xml/commits/list#{self.source_code_uri.sub(/(http:\/\/)github.com/, '')}/master"))
+        doc.xpath("//commits/commit/committed-date").first.text
+      end
+    end
   end
   
   BASE_URI = 'http://rubygems.org'
@@ -87,5 +97,24 @@ module Gemcutter
       })
     rescue Exception
     end
+  end
+  
+  def self.dependents(name)
+    gems = search(name)
+    dependents = []
+    gems.each do |each|
+      dependents << each if in_dependencies?(name, each.runtime_dependencies) || in_dependencies?(name, each.development_dependencies)
+    end
+    dependents.uniq
+  end
+  
+private
+  def self.in_dependencies? name, dependencies
+    dependencies.each { |dependency|
+      if dependency[:name] == name
+        return true
+      end
+    }
+    false
   end
 end
