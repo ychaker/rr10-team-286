@@ -60,7 +60,7 @@ class VotesController < ApplicationController
 private
   def has_access?
     unless signed_in?
-      flash[:error] = 'You must login to vote!'
+      flash[:error] = 'You must sign in to vote!'
       redirect_to(:back)
     else
       !params[:id].blank? && current_user.id == Vote.find(params[:id]).user_id

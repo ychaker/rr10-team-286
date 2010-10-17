@@ -13,10 +13,10 @@ a:hover,
 a:active,
 a:visited {
 	color: #9E8686;
-	text-decoration: none;
+	text-decoration: underline;
 }
 a:hover {
-	text-decoration: underline;
+	text-decoration: none;
 }
 #container {
 	width: 1000px;
@@ -147,12 +147,24 @@ red a:visited {
 }
 /* End Header */
 
+/* Footer */
 #footer {
 	color: #9E8686;
-	text-align: center;
 	padding: 30px;
+	margin: 0 auto;
+}
+#credits {
+	width: 45%;
+	float: left;
+	padding: 5px;
 }
 
+#team {
+	width: 45%;
+	float: right;
+	padding: 5px;
+}
+/* End Footer */
 .dependents,
 .project-status {
 	width: 400px;

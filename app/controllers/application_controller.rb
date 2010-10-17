@@ -15,4 +15,13 @@ class ApplicationController < ActionController::Base
     @current_user = user
     session[:user_id] = user.id
   end
+  
+  def require_user
+    unless current_user
+      flash[:error] = "You must be logged in to access this page."
+      redirect_to login_path
+      return false
+    end
+  end
+  
 end

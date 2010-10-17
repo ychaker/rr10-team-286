@@ -17,7 +17,7 @@
 		<div id="left-header">
 			<div id='user-status'>
 				<% if signed_in? %>
-					Hello <%= current_user.name %>. <%= link_to "Logout!", logout_path %> 
+					Hello <%= link_to current_user.name, profile_path %>. <%= link_to "Logout!", logout_path %> 
 				<% else %>
 					To vote on a gem, you must <%= link_to "sign in!", login_path %>
 				<% end %>
@@ -39,7 +39,17 @@
 	</div>
 	<div class="clear"> </div>
 	<div id="footer">
-		Theme Completely and Shamelessly Stolen from RubyGems.org
+		<div id="credits">
+			<h3>Credits</h3>
+			<p>Theme: Completely and Shamelessly Stolen from <a href="http://rubygems.org">RubyGems.org</a><p>
+			<p>Social Buttons: <a href="http://www.komodomedia.com/download/#sign-in-with-twitter-facebook-and-openid">Komodo Media</a></p>
+			<p>Idea: Discussion at <a href="http://rubydcamp.org">RubyDCamp</a> about staying up to date with the state of ruby gems</p>
+		</div>
+		<div id="team">
+			<h3>Team</h3>
+			<p>Team: <a href="http://rumbl.in/g/o19s">o19s</a></p>
+			<p>Developers: <a href="http://twitter.com/ychaer">@ychaker</a> (<a href="http://http://github.com/ychaker">github</a>) [+ everyone else who bailed out on me at the last minute!]</p>
+		</div>
 	</div>
 	<div class="clear"> </div>
 </div>

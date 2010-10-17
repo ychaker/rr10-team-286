@@ -15,8 +15,8 @@
   <tr>
     <td><%= vote.name %></td>
     <td><%= vote.version %></td>
-    <td><%= vote.user_id %></td>
-    <td><%= vote.timestamp %></td>
+    <td><%= vote.user.name %></td>
+    <td><%= vote.timestamp.strftime("%m/%d/%Y %H:%M:%S") %></td>
     <td><%= link_to 'Show', vote %></td>
   </tr>
 <% end %>

@@ -1,0 +1,14 @@
+<h2><%= @user.name %></h2>
+
+<div id='stats'>
+	<p>Number of Votes: <%= @user.total_votes %></p>
+	
+	<div id='activity'>
+		<h3>Activity</h3>
+		<% @user.votes.each do |vote| %>
+		<div class='user-vote'>
+			<p>Voted for <%= link_to vote.name, :controller => :gemcutter, :action => :rubygem, :name => vote.name %> (version: <%= vote.version %>), on <%= vote.timestamp.strftime("%m/%d/%Y %H:%M:%S") %> | <%= link_to 'Show', vote %></p>
+		</div>
+		<% end %>
+	</div>
+</div>
