@@ -176,16 +176,12 @@ red a:visited {
 
 .deprecate-me {
 	float: right;
-/*	position: absolute;
-	right: 100px;
-	top: 150px;*/
 	width: 400px;
 	z-index: 1000;
 }
 .deprecated-big {
 	float: left;
 	position: absolute;
-/*	right: 100px;*/
 	top: 150px;
 	width: 460px;
 	z-index: 1000;
