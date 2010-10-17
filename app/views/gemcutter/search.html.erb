@@ -36,7 +36,7 @@
 
 	<% @recent.each do |activity| %>
 		<div class="gem">
-			<red><%= link_to activity.name, :controller => :gemcutter, :action => :rubygem, :name => activity.name %></red> voted down by <strong><%= activity.user.name %></strong> at <%= activity.timestamp %>
+			<red><%= link_to activity.name, :controller => :gemcutter, :action => :rubygem, :name => activity.name %></red> voted down by <strong><%= activity.user.name %></strong> at <%= activity.timestamp.strftime("%m/%d/%Y %H:%M:%S") %>
 		</div>
 	<% end unless @recent.blank? %>
 <% end %>

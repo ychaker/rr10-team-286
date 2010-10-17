@@ -38,6 +38,10 @@ module Gemcutter
         doc.xpath("//commits/commit/committed-date").first.text
       end
     end
+    
+    def total_votes
+      Vote.by_name(self.name).count
+    end
   end
   
   BASE_URI = 'http://rubygems.org'

@@ -18,7 +18,7 @@ module GemcutterHelper
   end
   
   def display_dependency dependency
-    link_to "#{dependency.name}, #{dependency.version}", rubygem_path(:name => dependency.name)
+    link_to "#{dependency.name}, #{dependency.version}", :controller => 'gemcutter', :action => 'rubygem', :name => dependency.name
   end
   
   def display_last_commit_date date

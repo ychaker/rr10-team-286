@@ -1,19 +1,21 @@
 Deprecateme::Application.routes.draw do
   resources :votes
   resources :users
-
+  
+  match '/api/deprecated(.format)' => 'api#deprecated'
+  match '/api/:name(.format)' => 'api#rubygem'
   match '/auth/:provider/callback', :to => 'sessions#create'
   
-  match "login"             => "sessions#new"
-  match "logout"            => "sessions#destroy"
-  
-  match "/sessions/test"    => "sessions#test"
-  
-  match "search"            => "gemcutter#search"
-  match "rubygem"           => "gemcutter#rubygem"
-  match "gemcutter/:action" => "gemcutter"
-  
-  match "profile"           => "users#show"
+  match 'login'             => 'sessions#new'
+  match 'logout'            => 'sessions#destroy'
+        '                      '
+  match '/sessions/test'    => 'sessions#test'
+        '                      '
+  match 'search'            => 'gemcutter#search'
+  match 'rubygem/:name'     => 'gemcutter#rubygem'
+  match 'gemcutter/:action' => 'gemcutter'
+        '                      '
+  match 'profile'           => 'users#show'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,3 +1,4 @@
+require 'gemcutter'
 class Vote
   include MongoMapper::Document
 
@@ -23,5 +24,15 @@ class Vote
 
   def self.recent
     Vote.all(:order => 'timestamp DEC', :limit => 15)
+  end
+  
+  def self.deprecated
+    names =  Vote.all.map { |each| each.name }.uniq
+    names.map  { |each|
+      if deprecated?(each)
+        info = Gemcutter.rubygem(each)
+        { :name => info.name, :version => info.version, :uri => "/rubygem/#{info.name}", :total_votes => info.total_votes } 
+      end 
+    }.compact
   end
 end
