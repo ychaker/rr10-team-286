@@ -15,6 +15,7 @@ if defined?(BSON_C)
 end
 
 gem "nokogiri"
+gem "high_voltage", :git => "http://github.com/thoughtbot/high_voltage.git", :branch => "rails3"
 
 # Use unicorn as the web server
 # gem 'unicorn'

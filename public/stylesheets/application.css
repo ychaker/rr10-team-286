@@ -18,6 +18,8 @@ a:visited {
 a:hover {
 	text-decoration: none;
 }
+
+
 #container {
 	width: 1000px;
 	margin: 0 auto;
@@ -216,3 +218,68 @@ red a:visited {
   border: solid 1px #C66;
 }
 /* End Flash Messages */
+
+/* API Docs */
+
+#api-docs h2 {
+	color: #A00;
+	display: inline;
+	font-size: 4em;
+	line-height: 44px;
+	width: 65%;
+}
+#api-docs h2 a,
+#api-docs h2 a:active,
+#api-docs h2 a:visited,
+#api-docs h2 a:hover {
+	color: #A00;
+	text-decoration: none;
+}
+
+#api-docs h4 {
+	border-bottom: 1px solid #5E543E;
+	color: #5E543E;
+	font-size: 1.8em;
+	font-weight: 900;
+}
+
+h5.api {
+	color: #5E543E;
+	font-size: 1.0em;
+	font-weight: 900;
+}
+
+ul#docs {
+	color: #5E543E;
+	margin: 10px 10px;
+	list-style: none;
+}
+
+pre {
+	background: black;
+	border-bottom-left-radius: 10px 10px;
+	border-bottom-right-radius: 10px 10px;
+	border-top-left-radius: 10px 10px;
+	border-top-right-radius: 10px 10px;
+	color: white;
+	font-family: Monaco, Consolas, 'Courier New', monospace;
+	margin: 1.5em 36px;
+	overflow: auto;
+	padding: 1em;
+	line-height: 1.4em;
+}
+
+pre code {
+	padding: 0px;
+}
+code {
+	background: black;
+	border-bottom-left-radius: 5px 5px;
+	border-bottom-right-radius: 5px 5px;
+	border-top-left-radius: 5px 5px;
+	border-top-right-radius: 5px 5px;
+	color: white;
+	font-family: Monaco, Consolas, 'Courier New', monospace;
+	padding: 3px;
+}
+/* End API Docs*/

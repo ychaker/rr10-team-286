@@ -1,0 +1,100 @@
+<h2>What is Deprecate Me?</h2>
+<p>
+	Have you ever tried to find a gem for your needs, only to realize half way through the implementation that the gem is outdated?
+</p>
+
+<p>
+	Have you ever used a gem, only to find out later that it is no longer supported?
+</p>
+
+<p>
+	Have you ever dropped in on a conversation where a bunch of fellow rubyists are talking about how awful a gem is (you know, the one you've just used for your app that just went to production)?
+</p>
+
+<p>
+	<strong>Don't you wish you had a community site you rely on for this kind of information?</strong>
+</p>
+
+<p>
+	Well now you can come to <%= link_to "Deprecate Me", root_path %> to check on a particular gem's status.
+</p>
+
+<h2>Genesis</h2>
+<p>
+	At <a href="http://rubydcamp.org">RubyDCamp</a>, a session was held on the topic of the state of the ruby ecosystem. One the subjects that was discussed is the speed at which the ecosystem is evolving. Today's gem is tomorrow's ash. Even with all the means of communication we have, including twitter, staying up to date on which is the latest and greatest tool for the job is difficult.
+</p>
+
+<p>
+	<strong>So what is the solution?</strong> The answer is not easy and simple. How do you gage if a certain gem is deprecated? Or know if the maintainer is no longer supporting it? What if the person behind it just dropped off the face of the earth (yes I'm talking to you _why!)?
+</p>
+
+<p>
+	Well, you've got a community behind you. The Ruby community is the best I've worked with. So lets lean on the community for that sort of thing.
+</p>
+
+<h2>How?</h2>
+<p>
+	If you are a gem author and are no longer maintain a project, mark it as deprecated.
+</p>
+
+<p>
+	If you know for a FACT that a gem is deprecated, mark it as deprecated.
+</p>
+
+<p>
+	If a gem is broken or outdated and you know of a better alternative, mark it as deprecated.
+</p>
+
+<p>
+	If a gem source code has not been updated in a while, and issues and tickets not closed or addressed in a while, mark it as deprecated.
+</p>
+
+<h3>Instructions</h3>
+<p>
+	To vote for a gem to be deprecated, you must <%= link_to "sign in", login_path %>. We only allow one vote per user. You can sign in using any of the following: Twitter, Facebook, or LinkedIn.
+</p>
+
+<p>
+	Search for the gem you are looking using the search box in the header or on the home page:<br />
+	<%= image_tag "/images/screenshots/search.png", :border => 2, :width => 600, :height => 400 %>
+</p>
+	
+<p>
+	Navigate to the gem's page by clicking on the 'more info' link:<br />
+	<%= image_tag "/images/screenshots/gempage.png", :border => 2, :width => 600, :height => 400 %>
+</p>
+
+<p>
+	Once at the gem's page, you can look the gem's status. The list of dependents, last commit date and number of downloads can help you determine whether a gem is still active or not:<br />
+	<%= image_tag "/images/screenshots/project-status.png", :border => 2, :width => 400, :height => 400 %>
+</p>
+
+<p>
+	You can vote a gem to be deprecated by hitting the 'Deprecate Me!' stamp. <strong>A gem with 5 votes or more will be marked as 'Deprecated'</strong> (5 is a low enough number to work for the RailsRumble, may change in the future):<br />
+	<%= image_tag "/images/screenshots/deprecated.png", :border => 2, :width => 600, :height => 400 %>
+</p>
+
+<p>
+	A deprecated gem will be marked as so in search results:<br />
+	<%= image_tag "/images/screenshots/deprecated-list.png", :border => 2, :width => 600, :height => 400 %>
+</p>
+
+	
+<h2>Rules of Engagement</h2>
+
+<p>
+	<strong>Deprecate Me is NOT a popularity contest</strong>
+</p>
+
+<p>
+	Do NOT mark a gem as deprecated just because you want people to adopt yours instead
+</p>
+
+<p>
+	One vote per user.
+</p>
+
+<h2>Why Did You Steal RubyGems.org's Theme?</h2>
+<p>
+	The belief is that the functionality provided here can and should be added to RubyGems.org (and/or github). Deprecate Me should be used in conjunction with RubGems.org. In fact, the search functionality and acquiring the gem information use their <a href="http://rubygems.org/pages/api_docs">API</a>. So the theme reinforces the collaboration between Deprecate Me and RubyGems.org
+</p>

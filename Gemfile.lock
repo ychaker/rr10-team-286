@@ -8,6 +8,13 @@ GIT
       activesupport (~> 3.0.0)
       plucky (~> 0.3.6)
 
+GIT
+  remote: http://github.com/thoughtbot/high_voltage.git
+  revision: 88382713e982821a2ebb7071337470adbf8469dc
+  branch: rails3
+  specs:
+    high_voltage (0.9.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -148,6 +155,7 @@ PLATFORMS
 DEPENDENCIES
   bson_ext (= 1.0.7)
   capistrano
+  high_voltage!
   mongo_mapper!
   nokogiri
   omniauth

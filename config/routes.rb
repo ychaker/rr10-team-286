@@ -3,7 +3,7 @@ Deprecateme::Application.routes.draw do
   resources :users
   
   match '/api/deprecated(.format)' => 'api#deprecated'
-  match '/api/:name(.format)' => 'api#rubygem'
+  match '/api/rubygem/:name(.format)' => 'api#rubygem'
   match '/auth/:provider/callback', :to => 'sessions#create'
   
   match 'login'             => 'sessions#new'

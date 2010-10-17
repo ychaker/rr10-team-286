@@ -1,0 +1,72 @@
+<div id='api-docs'>
+
+<h2><a href="/pages/api_docs">API Docs</a></h2> 
+ 
+<h4>API Methods</h4> 
+<ul id="docs"> 
+  <li><a href="#rubygem">RubyGem Method</a>: Check the status of a gem</li> 
+  <li><a href="#deprecated">Deprecated Method</a>: Get list of all deprecated gems</li>
+</ul> 
+ 
+<h4 id="rubygem">RubyGem Method</h4> 
+ 
+<h5 class="api">GET - /api/rubygem/[name].(json|xml)</h5> 
+<p> 
+  Returns name, vote count and deprecated status for the given gem. For example, here's restful_authentication:
+  <pre>
+		<code>
+$ curl http://o19s.r10.railsrumble.com/api/rubygem/restful_authentication.json
+ 
+{
+  name: "restful_authentication",
+  vote_count: 6,
+  deprecated: true
+}
+ 
+$ curl http://o19s.r10.railsrumble.com/api/rubygem/restful_authentication.xml
+
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;hash&gt;
+  &lt;name&gt;restful_authentication&lt;/name&gt;
+  &lt;vote-count type="integer"&gt;6&lt;/vote-count&gt;
+  &lt;deprecated  type="boolean"&gt;true&lt;/deprecated&gt;
+&lt;/hash&gt;
+
+		</code>
+	</pre> 
+</p> 
+
+<h5 class="api">GET - /api/deprecated.(json|xml)</h5> 
+<p> 
+  List all gems that have been marked as deprecated. Returns an array of the XML or JSON representation with the name, version, uri and total number of votes.
+
+	<pre><code>$ curl http://o19s.r10.railsrumble.com/api/deprecated.json
+
+{
+  -gems: [
+  -{
+    name: "restful_authentication",
+    version: "1.1.6",
+    uri: "/rubygem/restful_authentication",
+    total_votes: 6
+  }
+  ]
+}
+ 
+$ curl http://o19s.r10.railsrumble.com/api/deprecated.xml
+
+
+&lt;hash&gt;
+  &lt;gems type="array"&gt;
+    &lt;gem&gt;
+      &lt;name&gt;restful_authentication&lt;/name&gt;
+      &lt;version&gt;1.1.6&lt;/version&gt;
+      &lt;uri&gt;/rubygem/restful_authentication&lt;/uri&gt;
+      &lt;total-votes type="integer"&gt;6&lt;/total-votes&gt;
+    &lt;/gem>
+  &lt;/gems>
+&lt;/hash>
+
+</code></pre>
+</p> 
+</div>

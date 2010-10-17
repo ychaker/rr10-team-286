@@ -31,6 +31,11 @@
 		</div>
 	</div>
 	<div class="clear"> </div>
+	<div id="nav">
+		<%= link_to "Home", root_path %> | 
+		<%= link_to "About", page_path("about") %> | 
+		<%= link_to "API", page_path("api_docs") %> |
+	</div>
 	<div id='wrapper'>
 		<%- flash.each do |name, msg| -%>
 			<%= content_tag :div, raw(msg), :id => "flash_#{name}" %>
@@ -50,13 +55,17 @@
 			<p>Team: <a href="http://rumbl.in/g/o19s">o19s</a></p>
 			<p>Developers: <a href="http://twitter.com/ychaer">@ychaker</a> (<a href="http://http://github.com/ychaker">github</a>) [+ everyone else who bailed out on me at the last minute!]</p>
 		</div>
+		<div class="clear"> </div>
+		<p style="text-align:center;">
+			RailsRumble 2010 entry for team <a href="http://rumbl.in/g/o19s">o19s</a>. Vote for us! Thanks :)
+		</p>
 	</div>
 	<div class="clear"> </div>
 </div>
 
+</body>
 <script type="text/javascript">
   var rumbleUrl = 'http://rumbl.in/g/o19s';
 </script>
 <script type="text/javascript" src="http://blog.railsrumble.com/javascripts/rumble-r10-sash.js"></script>
-</body>
 </html>
