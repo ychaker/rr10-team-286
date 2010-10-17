@@ -9,7 +9,7 @@ Deprecateme::Application.routes.draw do
   match "/sessions/test"    => "sessions#test"
   
   match "search"            => "gemcutter#search"
-  match "rubygem"            => "gemcutter#rubygem"
+  match "rubygem"           => "gemcutter#rubygem"
   match "gemcutter/:action" => "gemcutter"
   
   # The priority is based upon order of creation:

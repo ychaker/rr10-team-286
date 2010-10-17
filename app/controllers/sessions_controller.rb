@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   
   def new
-    redirect_to "/auth/twitter"
   end 
   
   def create
@@ -15,6 +14,7 @@ class SessionsController < ApplicationController
     self.current_user = @auth.user
 
     redirect_to root_url
+    # render :text => request.env['rack.auth']['user_info'][:name] || request.env['rack.auth']['user_info']['name']
   end
   
   def destroy

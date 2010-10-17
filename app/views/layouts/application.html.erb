@@ -4,6 +4,7 @@
   <title>DeprecateMe</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag "common", "subModal" %>
   <%= csrf_meta_tag %>
 </head>
 <body>
@@ -18,7 +19,7 @@
 				<% if signed_in? %>
 					Hello <%= current_user.name %>. <%= link_to "Logout!", logout_path %> 
 				<% else %>
-					To vote on a gem, you must <%= link_to image_tag("sign-in-with-twitter-d.png", :border=>0), login_path %> 
+					To vote on a gem, you must <%= link_to "sign in!", login_path %>
 				<% end %>
 			</div>
 			<div id="search">
@@ -44,7 +45,7 @@
 </div>
 
 <script type="text/javascript">
-  var rumbleUrl = 'http://railsrumble.com';
+  var rumbleUrl = 'http://rumbl.in/g/o19s';
 </script>
 <script type="text/javascript" src="http://blog.railsrumble.com/javascripts/rumble-r10-sash.js"></script>
 </body>
