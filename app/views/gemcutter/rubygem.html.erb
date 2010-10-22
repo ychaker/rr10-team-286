@@ -1,7 +1,9 @@
 <% unless @gem.blank? %>
 <div id="gem">
+	<h2><%= @gem.name %> <%= raw vote_count(@gem.name) %></h2>
+
 	<div class="gem-info">
-		<h2><%= @gem.name %> <%= raw vote_count(@gem.name) %></h2>
+		<h3>Info</h3>
 		<p>
 			<%= raw display_info(@gem, 'name') %>
 		</p>
@@ -54,30 +56,42 @@
 	<div class='deprecated-big'>
 		<%= image_tag("/images/deprecated-stamp-right.png", :border => 0) if Vote.deprecated?(@gem.name) %>
 	</div>
+	
+	<div class='activity-info'>
+
+		<div class="project-status">
+			<h3>Project Status</h3>
+			<p>
+				<strong>Total Votes for Deprecation:</strong> <%= Vote.by_name(@gem.name).count %><br />
+			</p>
+			<p>
+				<strong>Current Version Downloads:</strong> <%= @gem.version_downloads %><br />
+			</p>
+			<p>
+				<strong>Total Downloads:</strong> <%= @gem.downloads %><br />
+			</p>
+			<p>
+				<strong>Last Commit Date:</strong> <%= display_last_commit_date @gem.last_commit_date %><br />
+			</p>
+		</div>
+		<div class="dependents">
+			<h3>Possible Dependents</h3>
+			<% @gem.dependents.each do |dependent| %>
+				<%= display_dependency dependent %> <%= image_tag("/images/deprecated-stamp-straight.png", :border => 0, :width => 150, :height => 25) if Vote.deprecated?(dependent.name) %>
+				<div class="clear"> </div>
+				<br />
+			<% end %>
+		</div>
+		
+	</div>
+	
 	<% if signed_in? %>
 		<div class='deprecate-me'>
 			<%= link_to image_tag("/images/deprecateme-stamp.png", :border => 0, :width => 400), votes_path(:vote => { :name => @gem.name, :version => @gem.version, :user_id => current_user.id, :timestamp => Time.now }), :method => :post %>
 		</div>
 	<% end %>
 	
-	<div class="dependents">
-		<h2>Possible Dependents</h2>
-		<% @gem.dependents.each do |dependent| %>
-			<%= display_dependency dependent %>
-			<br />
-		<% end %>
-	</div>
-	
-	<div class="project-status">
-		<h2>Project Status</h2>
-		<strong>Total Votes for Deprecation:</strong> <%= Vote.by_name(@gem.name).count %><br />
-		<strong>Current Version Downloads:</strong> <%= @gem.version_downloads %><br />
-		<strong>Total Downloads:</strong> <%= @gem.downloads %><br />
-		<strong>Last Commit Date:</strong> <%= display_last_commit_date @gem.last_commit_date %><br />
-	</div>
-	
 	<div class="clear"> </div>
-	
 	<hr />
 	
 	

@@ -34,8 +34,14 @@ module Gemcutter
     
     def last_commit_date
       if self.source_code_uri.include?("github")
-        doc = Nokogiri::XML(open("http://github.com/api/v2/xml/commits/list#{self.source_code_uri.sub(/(http:\/\/)github.com/, '')}/master"))
-        doc.xpath("//commits/commit/committed-date").first.text
+        array = self.source_code_uri.split('/')
+        githubIndex = array.index('github.com')
+        begin
+          doc = Nokogiri::XML(open("http://github.com/api/v2/xml/commits/list/#{array[githubIndex + 1]}/#{array[githubIndex + 2]}/master"))
+          doc.xpath("//commits/commit/committed-date").first.text
+        rescue Exception
+          nil
+        end
       end
     end
     

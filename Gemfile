@@ -4,15 +4,12 @@ gem 'rails', '3.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'sqlite3'
 
 gem "mongo_mapper", :git => "http://github.com/jnunemaker/mongomapper.git", :branch => "rails3"
 gem "bson_ext", "1.0.7", :require => false
 gem 'omniauth'
 gem 'capistrano'
-
-if defined?(BSON_C)
-  warn 'YAY'
-end
 
 gem "nokogiri"
 gem "high_voltage", :git => "http://github.com/thoughtbot/high_voltage.git", :branch => "rails3"

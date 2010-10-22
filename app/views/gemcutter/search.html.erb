@@ -6,7 +6,7 @@
 <% unless @gems.blank? %>
 	<% @gems.each do |each| %>
 		<div class="gem">
-			<div class="gem-info">
+			<div class="gem-info-list">
 				<h2><%= each.name %>  <%= raw vote_count(each.name) %></h2>
 				<p>
 					<%= raw display_info(each, 'name') %>

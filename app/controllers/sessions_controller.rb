@@ -12,9 +12,10 @@ class SessionsController < ApplicationController
     end
     # Log the authorizing user in.
     self.current_user = @auth.user
-
+    unless current_user
+      flash[:error] = "Could not log you in. Please try again laster. If the error persists, please contact support."
+    end
     redirect_to root_url
-    # render :text => request.env['rack.auth']['user_info'][:name] || request.env['rack.auth']['user_info']['name']
   end
   
   def destroy

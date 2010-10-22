@@ -167,15 +167,16 @@ red a:visited {
 	padding: 5px;
 }
 /* End Footer */
-.dependents,
-.project-status {
-	width: 400px;
-	float: right;
-	padding-left: 20px;
+.activity-info {
+	width: 550px;
+	min-height: 400px;
+	float: left;
+	padding-right: 20px;
+	margin-bottom: 10px;
 }
 
 .deprecate-me {
-	float: right;
+	float: left;
 	width: 400px;
 	z-index: 1000;
 }
@@ -188,6 +189,12 @@ red a:visited {
 }
 
 .gem-info {
+	width: 350px;
+	float: right;
+	position:relative;
+}
+
+.gem-info-list {
 	width: 500px;
 	float: left;
 	position:relative;

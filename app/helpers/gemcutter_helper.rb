@@ -5,7 +5,9 @@ module GemcutterHelper
   
   def display_dependencies(search_result, attribute)
     "<strong>#{attribute.titleize}:</strong> <br/> " + search_result.send(attribute).inject("") { |display, dependency| 
-      display += "#{dependency[:name]} #{dependency[:requirements]} <br />"
+      display += link_to("#{dependency[:name]} #{dependency[:requirements]}", :controller => 'gemcutter', :action => 'rubygem', :name => dependency[:name])
+      display += image_tag("/images/deprecated-stamp-straight.png", :border => 0, :width => 150, :height => 25) if Vote.deprecated?(dependency[:name])
+      display += "<br />"
     }
   end
   
@@ -18,7 +20,7 @@ module GemcutterHelper
   end
   
   def display_dependency dependency
-    link_to "#{dependency.name}, #{dependency.version}", :controller => 'gemcutter', :action => 'rubygem', :name => dependency.name
+    link_to "#{dependency.name}, #{dependency.version}", :controller => 'gemcutter', :action => 'rubygem', :name => dependency.name 
   end
   
   def display_last_commit_date date
